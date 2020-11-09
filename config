@@ -1,0 +1,2 @@
+service=haproxy-lojban
+pod_args='-p 2628:2628'
