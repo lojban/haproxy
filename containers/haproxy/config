@@ -1,5 +1,6 @@
 description="general lojban.org haproxy service"
-requires=network-online.target
+requires=''
+needs_network=true
 name=haproxy
 version=1
 run_args=' '
