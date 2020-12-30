@@ -1,0 +1,2 @@
+MAILTO=webmaster@lojban.org
+37 * * * * /home/sphaproxy/haproxy/rebuild_images.sh

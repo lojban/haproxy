@@ -1,7 +1,7 @@
 description="general lojban.org haproxy service"
 requires=''
 needs_network=true
-name=haproxy
+name=web
 version=1
 run_args=' '
 run_program=''

@@ -1,2 +1,2 @@
-service=haproxy-lojban
+service=haproxy
 pod_args='-p 2628:2628'
