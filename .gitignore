@@ -1,2 +1,9 @@
-containers/haproxy/Dockerfile
-.git/
+# Vim
+[._]*.sw[a-p]
+*~
+
+# helps ripgrep not be silly
+.git
+
+containers/web/Dockerfile
+containers/web/data/

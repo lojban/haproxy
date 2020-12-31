@@ -1,2 +1,23 @@
 service=haproxy
-pod_args='-p 2628:2628'
+
+# So you'll see below that we use rootful pods to open low ports.
+# The other option here we had in Puppet like so, in
+# base/manifests/init.pp:
+#
+#     #*********************************************************************
+#     # Low Ports
+#     #
+#     # This looks scary, but SELinux won't let us open low ports
+#     # normally regardless, so it's not that big a deal.  We allow our
+#     # podman users to run unconfined, so this means any podman
+#     # container can run low ports
+#     #*********************************************************************
+#     exec { 'allow low ports':
+#       command => 'echo 80 > cat /proc/sys/net/ipv4/ip_unprivileged_port_start',
+#       unless  => 'cat /proc/sys/net/ipv4/ip_unprivileged_port_start | grep -q "^80$"',
+#     }
+#
+# I prefer the ip_unprivileged_port_start option above, but it won't
+# work for us because https://github.com/rootless-containers/slirp4netns/issues/250
+pod_args='-p 2628:2628 -p 80:19280 -p 443:19243'
+CONTAINER_BIN='sudo /usr/bin/podman'
