@@ -46,5 +46,8 @@ service=haproxy
 #
 # I chose #3; it seems least surprising.  I guess.
 #
+# Also, it means that the logs for haproxy show up in "journalctl --user -f",
+# which is there logs show up for every other container, so that's nice.
+#
 # The puppet code supporting it is in base/manifests/init.pp
 pod_args='-p 2628:2628 -p 80:19280 -p 443:19243 --network slirp4netns:port_handler=slirp4netns'
