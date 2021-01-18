@@ -5,5 +5,7 @@
 
 FROM haproxy:2.3
 
-RUN mkdir /etc/letsencrypt
+RUN apt-get update
+RUN apt-get install -y certbot
+
 COPY misc/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
