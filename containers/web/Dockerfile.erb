@@ -5,7 +5,13 @@
 
 FROM haproxy:2.3
 
-RUN apt-get update
-RUN apt-get install -y certbot
+RUN apt-get update && apt-get install -y certbot curl
+
+# This is only here to make sure we update the cloudflare IPs every
+# once in a while; see crontab
+COPY misc/curweek /tmp/curweek
+
+# Get the cloudflare IPs so we can get the original user's IP
+RUN curl -s https://www.cloudflare.com/ips-v4 https://www.cloudflare.com/ips-v6 >/usr/local/etc/haproxy/cloudflare_ips.lst 
 
 COPY misc/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
