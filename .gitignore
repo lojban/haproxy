@@ -8,3 +8,4 @@
 containers/web/Dockerfile
 containers/web/data/
 misc/curweek
+cron/crontab
