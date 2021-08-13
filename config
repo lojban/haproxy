@@ -50,4 +50,4 @@ service=haproxy
 # which is there logs show up for every other container, so that's nice.
 #
 # The puppet code supporting it is in base/manifests/init.pp
-pod_args='-p 2628:2628 -p 80:19280 -p 443:19243 --network slirp4netns:port_handler=slirp4netns'
+pod_args='-p 2628:2628 -p 9091:9091 -p 80:19280 -p 443:19243 --network slirp4netns:port_handler=slirp4netns'
