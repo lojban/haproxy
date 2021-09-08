@@ -1,4 +1,4 @@
-service=haproxy
+bundle=haproxy
 
 # haproxy needs to listen on port 80 and port 443.  I considered
 # several different ways of handling this.  Each has advantages and
