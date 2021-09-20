@@ -7,6 +7,7 @@ podman exec -u root -it web certbot certonly --expand --standalone \
     -d vlasisku.lojban.org -d tiki.lojban.org -d test-vs.lojban.org \
     -d camxes.lojban.org -d corpus.lojban.org -d jboski.lojban.org \
     -d alis.lojban.org -d alice.lojban.org \
+    -d mail.lojban.org -d mailman.lojban.org \
     --non-interactive --agree-tos --email webmaster@lojban.org --http-01-port=8888
 podman exec -u root -it web chown -R $(id -un):$(id -gn) /etc/letsencrypt/
 
