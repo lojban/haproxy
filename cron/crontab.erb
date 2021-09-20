@@ -10,3 +10,9 @@ MAILTO=webmaster@lojban.org
 1  1   * * 1 /home/sphaproxy/haproxy/renew_certs.sh
 # See Dockerfile for what this is about
 2  2   * * 2 /usr/bin/date +%V >/home/sphaproxy/haproxy/misc/curweek
+
+# Daily backups
+9 9 * * * <%= maindir %>/self_backup.sh zh1785@zh1785.rsync.net '+%j'
+
+# Daily restore test
+10 10 * * * <%= maindir %>/self_restore_test.sh zh1785@zh1785.rsync.net webmaster@lojban.org
