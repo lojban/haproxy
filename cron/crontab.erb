@@ -11,8 +11,11 @@ MAILTO=webmaster@lojban.org
 # See Dockerfile for what this is about
 2  2   * * 2 /usr/bin/date +\%V >/home/sphaproxy/haproxy/misc/curweek
 
-# Daily backups
-9 9 * * * <%= maindir %>/self_backup.sh zh1785@zh1785.rsync.net '+\%j'
+# Daily backups; 7 day retention
+8 8 * * * <%= maindir %>/self_backup.sh zh1785@zh1785.rsync.net '+day-\%w'
+
+# Weekly backups; 52 week retention
+9 9 * * * <%= maindir %>/self_backup.sh zh1785@zh1785.rsync.net '+week-\%W'
 
 # Daily restore test
 10 10 * * * <%= maindir %>/self_restore_test.sh zh1785@zh1785.rsync.net webmaster@lojban.org
