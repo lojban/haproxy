@@ -53,4 +53,7 @@ bundle=haproxy
 
 # The other interesting part here is outbound_addr=192.168.123.119 ;
 # see the smtp_backupnd definition in the conf file for how that works.
-pod_args='-p 2628:2628 -p 9091:9091 -p 80:19280 -p 443:19243 -p 25:19225 -p 465:19265 -p 587:19287 --network slirp4netns:port_handler=slirp4netns,outbound_addr=192.168.123.119'
+#
+# The MTU thing is
+# https://github.com/rootless-containers/slirp4netns/issues/284
+pod_args='-p 2628:2628 -p 9091:9091 -p 80:19280 -p 443:19243 -p 25:19225 -p 465:19265 -p 587:19287 --network slirp4netns:mtu=30000,port_handler=slirp4netns,outbound_addr=192.168.123.119'
