@@ -14,6 +14,6 @@ COPY misc/curweek /tmp/curweek
 # Get the cloudflare IPs so we can get the original user's IP
 RUN curl -s https://www.cloudflare.com/ips-v4 >/usr/local/etc/haproxy/cloudflare_ips.lst
 RUN echo >>/usr/local/etc/haproxy/cloudflare_ips.lst
-RUN curl -s https://www.cloudflare.com/ips-v6 >/usr/local/etc/haproxy/cloudflare_ips.lst
+RUN curl -s https://www.cloudflare.com/ips-v6 >>/usr/local/etc/haproxy/cloudflare_ips.lst
 
 COPY misc/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
