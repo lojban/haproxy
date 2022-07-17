@@ -3,7 +3,7 @@
 <%= "# YOU ARE IN THE WRONG PLACE use the ERB file" %>
 <%= "# YOU ARE IN THE WRONG PLACE" %>
 
-FROM haproxy:2.3
+FROM docker.io/library/haproxy:2.3
 
 RUN apt-get update && apt-get install -y certbot curl
 
