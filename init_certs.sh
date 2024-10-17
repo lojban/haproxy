@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Note that lojban.com and lojban.net have TLS terminated at
+# cloudflare, and redirect to lojban.org via cloudflare Rules.
 podman exec -u root -it web certbot certonly --expand --standalone \
     -d lojban.org \
     -d mw.lojban.org -d mw-live.lojban.org -d mw-test.lojban.org \
